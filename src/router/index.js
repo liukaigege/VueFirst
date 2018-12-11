@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// 导入组件
 import Login from '@/components/login/Login'
 import Home from '@/components/home/Home'
-// 导入组件
 import Users from '@/components/users/Users'
 import Roles from '@/components/roles/Roles'
 import Rights from '@/components/rights/Rights'
 import Categories from '@/components/categories/Categories'
+import Goods from '@/components/goods/Goods'
+import GoodsAdd from '@/components/goods_add/Goods_add'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
@@ -17,7 +19,14 @@ const router = new VueRouter({
         { path: '/users', component: Users },
         { path: '/roles', component: Roles },
         { path: '/rights', component: Rights },
-        { path: '/categories', component: Categories }
+        { path: '/categories', component: Categories },
+        // /goods/:page 表示使用了路由参数，用来动态匹配哈希值
+        //   :page 就是路由参数，我们使用这个参数，来匹配分页数值
+        // :page? 表示这路由参数是可选的，可以有，也可以没有，这样就可以匹配：
+        // 1 /goods
+        // 2 /goods/6
+        { path: '/goods/:page?', component: Goods },
+        { path: '/goods_add', component: GoodsAdd }
       ]
     }
   ]

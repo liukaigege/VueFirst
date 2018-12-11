@@ -1,0 +1,50 @@
+<div class="goods">
+  <el-button plain type="success" @click="$router.push(`/goods_add`)">添加商品</el-button>
+    <el-table
+      :data="goodsData"
+      stripe
+      style="width: 100%">
+      <el-table-column
+        type="index"
+        width="50">
+      </el-table-column>
+      <el-table-column
+        prop="goods_name"
+        label="商品名称"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="goods_price"
+        label="商品价格"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="goods_weight"
+        label="商品重量"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="add_time"
+        label="创建时间"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        label="操作">
+        <template slot-scope="scope">
+          <el-button plain type="primary" icon="el-icon-edit" size="mini">
+          </el-button>
+          <el-button plain type="warning" icon="el-icon-delete" size="mini">
+          </el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <!-- 分页 -->
+    <el-pagination
+      background
+      :page-size="pagesize"
+      :current-page="pagenum"
+      layout="prev, pager, next"
+      :total="total-0"
+      @current-change="changePage">
+    </el-pagination>
+</div>
